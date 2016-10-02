@@ -44,25 +44,18 @@ def main():
             x = x + partitionSize
         x = 0
         processList = []
-        #queue = Queue()
         for part in parts:
             process = Process(target=download, args=(url, part, str(x), fileName))
             process.start()
             processList.append(process)
             print 'Thread' + str(x+1) + ' started'
             x = x + 1
-        x = 0
         while len(processList) != 0:
             for processes in processList:
                 if not pid_exists(processes.pid):
                     print 'Process with pid=' + str(processes.pid) + ' ended'
                     processes.join()
                     processList.remove(processes)
-        """while len(processList) != 0:
-            for pid in processList:
-                if not pid_exists(pid):
-                    print 'Process with pid=' + str(pid) + 'ended'
-                    processList.remove(pid)"""
         print 'Download complete! :)'
         print 'Compiling now.....'
         to_file = open(fileName, 'wb')
@@ -74,18 +67,3 @@ def main():
             remove(tmp)
         to_file.close()
         print 'Compiled!!'
-
-        """with closing(Pool(processes=int(partitions))) as pool:
-            for part in parts:
-                print 'Thread' + str(x) + ' started!'
-                pool.map(download, args=(url, part, str(x)))
-                x += 1"""
-        """for part in parts:
-            print 'Part' + str(y) + ': ' + part + ' bytes'
-            y += 1
-            headers = 'Content-Length: ' + part
-            request = urllib2.Request(url, headers)
-            result = urllib2.urlopen(request)
-            data = result.read()
-            with open(fileName + ".mp3", "wb") as code:
-                code.write(data)"""
