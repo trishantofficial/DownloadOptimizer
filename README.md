@@ -19,11 +19,8 @@
 How to install:
 <ol type="a">
 <li>Install Python 2.x, from <a href="https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi">here (python.org)</a>.</li>
-<li>Install a package manager like pip or easyinstall for python.<ul><li><a href="https://pip.pypa.io/en/latest/installing/">pip</a></li>
-<li><a href="http://simpledeveloper.com/how-to-install-easy_install/">easy_install</a></li>
-</ul>
-</li>
-<li>Install the above mentioned modules using the installed package manager.(Only psutil is required to be downloaded since, others are accompanied by the python installer itself).</li>
+<li>Install <a href="http://simpledeveloper.com/how-to-install-easy_install/">easy_install</a> for python.</li>
+<li>The downloader will automatically download and install the required modules. But if you wish to do them manually use pip or easy_install.(Only psutil is required to be downloaded since, others are accompanied by the python installer itself).</li>
 <li>Change the directory to the DownloadOptimzer package.</li>
 <li>Run the program using <font color="#4169E1">python __init__.py</font></li>
 <li>Enter URL of the file you wish to download and the number of desired partitions.</li>
